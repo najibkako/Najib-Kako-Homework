@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+
+// Hi Dr. Powers, I followed the guide and it said to copy paste the code into here.//
+// Wasn't sure if this was right I thought we would need to write our own code. // 
+// Let me know if I should try again or if I mistakenly misunderstood the instructions. // 
+// Thank you and have a good morning/evening/night //
