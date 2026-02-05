@@ -7,6 +7,15 @@
 #include <string>
 // This allows us to use the strings (a line of characters)
 
+#include <bitset>
+// This allows us to use bitset, which is what we use to show binary values
+
+#include <cstdint>
+// This allows us to use fixed width integer types
+
+#include <cstring>
+// This allows us to use functions for manipulating C-style strings and arrays
+
 using namespace std;
 // This allows us to use the standard library without having to type "std::" before every command 
 
@@ -15,6 +24,28 @@ using namespace std;
 // THESE NOTES ARE ABOUT TO GET EXTREMELLLLLLY REPETITIVE AND CONVOLUTED
 // Im sorry in advance, this is cuz im a dummy who needs to learn like a dummy to learn it correctly
 // enjoy these dumb notes srry my brotha :C 
+
+string intToBinary(int number) {
+      return bitset<32>(number).to_string();
+}
+
+// This will turn text to 32 bit binary 
+// intToBinary is the name of the function
+// bitset<32> is so we can see it in 32 bits
+// (number) is the input we are changing to binary
+// .to_string() is so that the bitset turns into text
+
+string floatToBinary(float number) {
+      uint32_t bits;
+      memcpy(&bits, &number, sizeof(number));
+      return bitset<32>(bits).to_string();
+}
+
+// the function recieves one float
+// uint32_t bits; is creating a box named bits that will hold a 32 bit unsigned integer
+// memcpy is a command that copies data from one location to another
+// bitset<32>(bits).to_string(); is turning the bits into 32 bit binary text
+// return sends it back
 
 int main() { 
 
@@ -30,7 +61,7 @@ char letter;
 // letter is simply the name of the box
 // we put a semicolon at the end of each line because a semicolon in code is like a period
 
-cout << "type a letter, number, or symbol habibi: ";
+cout << "type a letter habibi: ";
 
 // cout means "console output" so that in the terminal we get text outputted
 // << is to send the text after INTO the command cout
@@ -65,5 +96,28 @@ cout << "ASCII value in 8 bits is: "
       // static_cast     | static_cast in plain terms is just how you tell C++ to change something from one type to another (in this case char to unsigned char) 
       // <unsigned char> | <unsigned char> is what we are changing it TO (changing letter from char to unsigned char) (this means the char will only be positive)
       // (letter)        | (letter) is what we are changing (the box named letter that holds the character inputted by user)
+
+int number;
+cout << "type an integer: ";
+cin >> number;
+cout << "you inputted: " << number << "\n";
+cout << "binary value is: " << intToBinary(number) << "\n";
+
+// same as above but number instead of letter
+
+float f; 
+cout << "type a float: ";
+cin >> f; 
+cout << "you inputted: " << f << "\n";
+cout << "binary value is: " << floatToBinary(f) << "\n";
+
+      
+// same as above but its a float (2.5 , 3.14 , etc)
+
+return 0;
+// return 0; is to end the main function and return a value of 0 to the operating system
+
 }
+
+
 
