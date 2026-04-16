@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int main() { 
     char message [100];
     int vowel_count = 0;
@@ -11,7 +14,7 @@ int main() {
             vowel_count++;
         }
     }
-    
+
     cout << "Number of vowels in yo message BOIII: " << vowel_count << endl;
 
     return 0;
